@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "pylgnt"
+version = "0.1.0"
+description = ""
+authors = ["Ivan Dustin Bilon <ivan22.dust@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+pandas = "^1.5.3"
+cchardet = "^2.1.7"
+
+[tool.poetry.scripts]
+lgnt = "pylgnt.main:main"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
