@@ -1,23 +1,25 @@
 import argparse
 from .handle_download import handle_download
 from .handle_convert import handle_convert
-
-handlers = {
-    "download": handle_download,
-    "convert": handle_convert,
-}
+from .handle_extract import handle_extract
 
 
 def main():
-    args = get_args()
+    handlers = {
+        "download": handle_download,
+        "convert": handle_convert,
+        "extract": handle_extract,
+    }
+    commands = list(handlers.keys())
+    args = get_args(commands)
     command = args.command
     handler = handlers[command]
     handler(args)
 
 
-def get_args():
+def get_args(commands):
     parser = argparse.ArgumentParser()
-    parser.add_argument("command", choices=list(handlers.keys()))
+    parser.add_argument("command", choices=commands)
     return parser.parse_args()
 
 
