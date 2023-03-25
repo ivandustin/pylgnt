@@ -45,7 +45,7 @@ new = {
     "Mark": "Mark",
     "Luke": "Luke",
     "John": "John",
-    "Acts": "Acts of the Apostles",
+    "Acts": "Acts",
     "Rom": "Romans",
     "1 Cor": "1 Corinthians",
     "2 Cor": "2 Corinthians",
