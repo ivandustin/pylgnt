@@ -12,7 +12,7 @@ pandas = "^1.5.3"
 cchardet = "^2.1.7"
 
 [tool.poetry.scripts]
-lgnt = "pylgnt.main:main"
+lgnt = "pylgnt.__init__:main"
 
 
 [tool.poetry.group.dev.dependencies]
