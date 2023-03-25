@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "pylgnt"
 version = "0.1.0"
-description = ""
+description = "A command line tool for downloading data from www.livinggreeknt.org"
 authors = ["Ivan Dustin Bilon <ivan22.dust@gmail.com>"]
 license = "MIT"
 readme = "README.md"
