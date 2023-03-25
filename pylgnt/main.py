@@ -10,14 +10,13 @@ def main():
         "convert": handle_convert,
         "extract": handle_extract,
     }
-    commands = list(handlers.keys())
-    args = get_args(commands)
+    args = get_args()
     command = args.command
     handler = handlers[command]
     handler(args)
 
 
-def get_args(commands):
+def get_args():
     parser = argparse.ArgumentParser()
     parsers = parser.add_subparsers(dest="command", required=True)
     parsers.add_parser("download")
