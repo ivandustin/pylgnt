@@ -1,4 +1,4 @@
-book_titles = {
+old = {
     "Genesis": "Genesis",
     "Exodus": "Exodus",
     "Leviticus": "Leviticus",
@@ -38,6 +38,9 @@ book_titles = {
     "Haggai": "Haggai",
     "Zechariah": "Zechariah",
     "Malachi": "Malachi",
+}
+
+new = {
     "Matt": "Matthew",
     "Mark": "Mark",
     "Luke": "Luke",

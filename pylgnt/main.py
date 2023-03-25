@@ -19,7 +19,11 @@ def main():
 
 def get_args(commands):
     parser = argparse.ArgumentParser()
-    parser.add_argument("command", choices=commands)
+    parsers = parser.add_subparsers(dest="command", required=True)
+    parsers.add_parser("download")
+    parsers.add_parser("convert")
+    extract = parsers.add_parser("extract")
+    extract.add_argument("directory")
     return parser.parse_args()
 
 
