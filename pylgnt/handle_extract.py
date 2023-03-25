@@ -89,7 +89,7 @@ def add_testament(dataframes):
 def save(dataframe, directory, columns):
     groups = dataframe.groupby(["testament", "book_number", "book"])
     for (testament, book_number, book), group in groups:
-        filename = f"{book_number}-{book}.csv".replace(" ", "-").lower()
+        filename = f"{book_number:02}-{book}.csv".replace(" ", "-").lower()
         filepath = directory / testament / filename
         filepath.parent.mkdir(parents=True, exist_ok=True)
         group[columns].to_csv(filepath, index=False)
