@@ -17,6 +17,7 @@ def normalize_dataframe(dataframe):
         rename_book,
         remove_nulls,
         reindex,
+        retype,
     ]
     return apply(pipeline, dataframe)
 
@@ -53,14 +54,12 @@ def trim(dataframe):
 
 
 def fix_codepoints(dataframe):
-    dataframe["word"] = dataframe["word"].map(fix_codepoint).astype("string")
+    dataframe["word"] = dataframe["word"].map(fix_codepoint)
     return dataframe
 
 
 def rename_book(dataframe):
-    dataframe["book"] = (
-        dataframe["book"].map(OLD_MAPPING | NEW_MAPPING).astype("string")
-    )
+    dataframe["book"] = dataframe["book"].map(OLD_MAPPING | NEW_MAPPING)
     return dataframe
 
 
@@ -70,3 +69,13 @@ def remove_nulls(dataframe):
 
 def reindex(dataframe):
     return dataframe.reset_index(drop=True)
+
+
+def retype(dataframe):
+    types = {
+        "book": "string",
+        "chapter": "int",
+        "verse": "int",
+        "word": "string",
+    }
+    return dataframe.astype(types)
