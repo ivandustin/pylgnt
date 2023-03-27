@@ -10,6 +10,7 @@ readme = "README.md"
 python = "^3.9"
 pandas = "^1.5.3"
 cchardet = "^2.1.7"
+transliterate = "^1.10.2"
 
 [tool.poetry.scripts]
 lgnt = "pylgnt.__init__:main"

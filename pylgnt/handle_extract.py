@@ -1,6 +1,7 @@
 from pathlib import Path
 from pandas import concat
 from .book_mappings import old as old_mapping, new as new_mapping
+from .normalize_greek import normalize_greek
 from .constants import OT_NAME, NT_NAME
 from .read_tsv import read_tsv
 
@@ -17,6 +18,7 @@ def handle_extract(args):
     dataframes = normalize_book(dataframes)
     dataframes = add_book_number(dataframes)
     dataframes = add_testament(dataframes)
+    dataframes = normalize_word(dataframes)
     dataframe = concat(dataframes)
     columns = ["chapter", "verse", "word"]
     save(dataframe, directory, columns)
@@ -84,6 +86,12 @@ def add_testament(dataframes):
     for testament, dataframe in zip(["old", "new"], dataframes):
         dataframe["testament"] = testament
     return dataframes
+
+
+def normalize_word(dataframes):
+    old, new = dataframes
+    new["word"] = new["word"].apply(normalize_greek)
+    return [old, new]
 
 
 def save(dataframe, directory, columns):
