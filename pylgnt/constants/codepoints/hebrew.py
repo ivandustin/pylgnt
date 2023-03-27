@@ -1,0 +1,2 @@
+ALEF = 0x5D0
+TAV = 0x5EA

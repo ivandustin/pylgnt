@@ -1,14 +1,20 @@
 import argparse
-from .handle_download import handle_download
-from .handle_convert import handle_convert
-from .handle_extract import handle_extract
+from .commands.normalize.main import main as normalize_main
+from .commands.alphabet.main import main as alphabet_main
+from .commands.download.main import main as download_main
+from .commands.convert.main import main as convert_main
+from .commands.extract.main import main as extract_main
+from .commands.info.main import main as info_main
 
 
 def main():
     handlers = {
-        "download": handle_download,
-        "convert": handle_convert,
-        "extract": handle_extract,
+        "normalize": normalize_main,
+        "alphabet": alphabet_main,
+        "download": download_main,
+        "convert": convert_main,
+        "extract": extract_main,
+        "info": info_main,
     }
     args = get_args()
     command = args.command
@@ -19,8 +25,12 @@ def main():
 def get_args():
     parser = argparse.ArgumentParser()
     parsers = parser.add_subparsers(dest="command", required=True)
+    parsers.add_parser("normalize")
+    alphabet = parsers.add_parser("alphabet")
+    alphabet.add_argument("--normalize", action="store_true")
     parsers.add_parser("download")
     parsers.add_parser("convert")
+    parsers.add_parser("info")
     extract = parsers.add_parser("extract")
     extract.add_argument("directory")
     return parser.parse_args()
