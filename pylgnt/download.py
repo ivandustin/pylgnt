@@ -4,7 +4,7 @@ from pathlib import Path
 from shutil import move
 
 
-def download_url(url, filepath):
+def download(url, filepath):
     request = Request(url)
     request.add_header("User-Agent", "Mozilla/5.0")
     with urlopen(request) as response:
