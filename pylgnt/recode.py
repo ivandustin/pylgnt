@@ -1,7 +1,7 @@
 from pylgnt.constants.mappings.codepoint.greek import MAPPING
 
 
-def fix(string):
+def recode(string):
     return "".join(
         map(
             chr,

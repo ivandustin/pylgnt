@@ -1,6 +1,6 @@
 from pylgnt.constants.mappings.book.old import MAPPING as OLD_MAPPING
 from pylgnt.constants.mappings.book.new import MAPPING as NEW_MAPPING
-from pylgnt.codepoints.fix import fix as fix_codepoint
+from pylgnt.recode import recode
 
 
 def normalize(dataframes):
@@ -54,7 +54,7 @@ def trim(dataframe):
 
 
 def fix_codepoints(dataframe):
-    dataframe["word"] = dataframe["word"].map(fix_codepoint)
+    dataframe["word"] = dataframe["word"].map(recode)
     return dataframe
 
 
