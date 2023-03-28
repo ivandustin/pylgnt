@@ -1,5 +1,5 @@
-from .constants.names import OLD, NEW
 from pathlib import Path
+from .constants.names import OLD, NEW
 
 
 def get_filepaths():
